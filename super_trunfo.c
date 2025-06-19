@@ -12,7 +12,7 @@ int main(){
     int pontoturistico1, pontoturistico2;
     float densidade1, densidade2;
     float calculopib1, calculopib2;
-    int vencedor;
+    int opcao;
 
     
     //Iniciando a solicitação para que o usuário insira os dados da primeira carta.
@@ -111,17 +111,113 @@ int main(){
 
     printf("\n\n");
 
+    /*  DESAFIO NÍVEL NOVATO
+    printf("Carta 1 - %s: %d\n", cidade1, populacao1);
+    printf("Carta 2 - %s: %d\n", cidade2, populacao2);
+
     //Realizando a comparação utilizando if/else.
     //Atributo escolhido: POPULAÇÃO
         if(populacao1 > populacao2) {
-    printf("Carta 1 - %s: %d\n", cidade1, populacao1);
-    printf("Carta 2 - %s: %d\n", cidade2, populacao2);
     printf("Resultado: Carta 1 (%s) venceu!\n", cidade1);
         } else {
-    printf("Carta 1 - %s: %d\n", cidade1, populacao1);
-    printf("Carta 2 - %s: %d\n", cidade2, populacao2);
     printf("Resultado: Carta 2 (%s) venceu!\n", cidade2);
-}
+ }   */
+
+
+    //Solicitando que o usuário escolha um atributo para comparação das cartas (Nível aventureiro):
+    printf("*** ESCOLHA UM ATRIBUTO PARA COMPARAR AS CARTAS: ***\n");
+    printf("1. População\n");
+    printf("2. Área\n");
+    printf("3. PIB\n");
+    printf("4. Pontos Turísticos\n");
+    printf("5. Densidade Demogrática\n\n");
+
+    scanf("%d", &opcao); // Armazenando a opção selecionada.
+
+    printf("\n");
+
+    //Utilizando o SWTICH para fazer a seleção.
+    switch (opcao) {
+        case 1: //Quando for selecionada a primeira opção.
+        printf("Nome das cidades: %s X %s.\n", cidade1, cidade2);
+        printf("Atributo selecionado: POPULAÇÃO\n");
+        printf("População: %d X %d\n", populacao1, populacao2);
+            
+            if(populacao1 > populacao2) {
+                printf("### CARTA 1, VENCEU ! ###\n");
+            }  else if(populacao1 == populacao2) {
+                printf("### EMPATE ! ###");
+            }
+            else {
+                printf("### CARTA 2, VENCEU ! ###\n");
+            }
+            break;
+
+        case 2: //Quando for selecionada a segunda opção.
+        printf("Nome das cidades: %s X %s.\n", cidade1, cidade2);
+        printf("Atributo selecionado: ÁREA\n");
+        printf("Área: %f X %f\n", area1, area2);
+
+            if(area1 > area2) { //Utilizando IF
+                printf("### CARTA 1, VENCEU ! ###\n");
+            }  else if(area1 == area2) { //Utilizando ELSE IF
+                printf("### EMPATE ! ###");
+            }
+            else { //utilizando ELSE
+                printf("### CARTA 2, VENCEU ! ###\n");
+            }
+            break;
+
+        case 3: //Quando for selecionada a terceira opção.
+        printf("Nome das cidades: %s X %s.\n", cidade1, cidade2);
+        printf("Atributo selecionado: PIB\n");
+        printf("PIB: %f X %f\n", pib1, pib2);
+
+            if(pib1 > pib2) {
+                printf("### CARTA 1, VENCEU ! ###\n");
+            }  else if(pib1 == pib2) {
+                printf("### EMPATE ! ###");
+            }
+            else {
+                printf("### CARTA 2, VENCEU ! ###\n");
+            }
+            break;
+
+        case 4: //Quando for selecionada a quarta opção.
+        printf("Nome das cidades: %s X %s.\n", cidade1, cidade2);
+        printf("Atributo selecionado: Pontos Turísticos\n");
+        printf("Pontos Turísticos: %d X %d\n", pontoturistico1, pontoturistico2);
+
+            if(pontoturistico1 > pontoturistico2) {
+                printf("### CARTA 1, VENCEU ! ###\n");
+            }  else if(pontoturistico1 == pontoturistico2) {
+                printf("### EMPATE ! ###");
+            }
+            else {
+                printf("### CARTA 2, VENCEU ! ###\n");
+            }
+            break;
+
+        case 5: //Quando for selecionada a quinta opção.
+        printf("Nome das cidades: %s X %s.\n", cidade1, cidade2);
+        printf("Atributo selecionado: Densidade Demográfica\n");
+        printf("Densidade Demográfica: %d X %d\n", densidade1, densidade2);
+
+            if(densidade1 > densidade2) {
+                printf("### CARTA 1, VENCEU ! ###\n");
+            }  else if(densidade1 == densidade2) {
+                printf("### EMPATE ! ###");
+            }
+            else {
+                printf("### CARTA 2, VENCEU ! ###\n");
+            }
+            break;
+
+        default://Caso o usuário digite um número não listado, retornará esta mensagem:
+        printf("Opção inválida.\nTente novamente.\n");
+
+    }
+
 
     return 0;
 }
