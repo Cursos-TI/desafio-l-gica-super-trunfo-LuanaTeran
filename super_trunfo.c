@@ -12,7 +12,7 @@ int main(){
     int pontoturistico1, pontoturistico2;
     float densidade1, densidade2;
     float calculopib1, calculopib2;
-    int opcao;
+    int opcao1, opcao2;
 
     
     //Iniciando a solicitação para que o usuário insira os dados da primeira carta.
@@ -80,6 +80,49 @@ int main(){
     calculopib2 = (float) pib2 * 1000000000 / populacao2;    //Cálculo do PIB Per Capita em bilhôes de reais.
     
     printf("\n");
+    
+    /*  DESAFIO NÍVEL NOVATO
+    printf("Carta 1 - %s: %d\n", cidade1, populacao1);
+    printf("Carta 2 - %s: %d\n", cidade2, populacao2);
+
+    //Realizando a comparação utilizando if/else.
+    //Atributo escolhido: POPULAÇÃO
+        if(populacao1 > populacao2) {
+    printf("Resultado: Carta 1 (%s) venceu!\n", cidade1);
+        } else {
+    printf("Resultado: Carta 2 (%s) venceu!\n", cidade2);
+ }   */
+
+
+    //Solicitando que o usuário escolha um atributo para comparação das cartas (Nível aventureiro):
+    printf("*** ESCOLHA O PRIMEIRO ATRIBUTO PARA COMPARAR AS CARTAS: ***\n");
+    printf("1. População\n");
+    printf("2. Área\n");
+    printf("3. PIB\n");
+    printf("4. Pontos Turísticos\n");
+    printf("5. Densidade Demogrática\n\n");
+
+    scanf("%d", &opcao1); // Armazenando a opção selecionada.
+
+    printf("\n");
+
+    //Solicitando ao usuário que escolha o segundo atibuto.
+    printf("*** ESCOLHA O SEGUNDO ATRIBUTO: ***\n");
+    printf("1. População\n");
+    printf("2. Área\n");
+    printf("3. PIB\n");
+    printf("4. Pontos Turísticos\n");
+    printf("5. Densidade Demogrática\n\n");
+
+    scanf("%d", &opcao2); // Armazenando a opção selecionada.
+
+    //Verificando se o segundo atributo é igual ao primeiro:
+        if(opcao1 == opcao2){
+            printf("O segundo atributo não pode ser igual ao primeiro. Escolha outro atributo.\n");
+            return 1;  //Se os dois atributos forem iguais, encerrará o programa.
+        }
+
+    printf("\n");
 
     //Mostrando na tela as informações da primeira carta contendo os dados digitados pelo usuário.
     printf("Carta 1:\n");
@@ -111,33 +154,97 @@ int main(){
 
     printf("\n\n");
 
-    /*  DESAFIO NÍVEL NOVATO
-    printf("Carta 1 - %s: %d\n", cidade1, populacao1);
-    printf("Carta 2 - %s: %d\n", cidade2, populacao2);
 
-    //Realizando a comparação utilizando if/else.
-    //Atributo escolhido: POPULAÇÃO
-        if(populacao1 > populacao2) {
-    printf("Resultado: Carta 1 (%s) venceu!\n", cidade1);
-        } else {
-    printf("Resultado: Carta 2 (%s) venceu!\n", cidade2);
- }   */
+// Calculando a soma dos atributos para cada carta
+float soma1 = 0, soma2 = 0;
+
+// Comparação do primeiro atributo
+printf("Primeiro atributo escolhido para comparação: ");
+switch (opcao1) {
+    case 1: 
+        printf("População\n");
+        soma1 += populacao1;
+        soma2 += populacao2;
+        break;
+    case 2: 
+        printf("Área\n");
+        soma1 += area1;
+        soma2 += area2;
+        break;
+    case 3: 
+        printf("PIB\n");
+        soma1 += pib1;
+        soma2 += pib2;
+        break;
+    case 4: 
+        printf("Pontos Turísticos\n");
+        soma1 += pontoturistico1;
+        soma2 += pontoturistico2;
+        break;
+    case 5: 
+        printf("Densidade Demográfica\n");
+        soma1 += densidade1;
+        soma2 += densidade2;
+        break;
+    default: 
+        printf("Opção inválida\n");
+        return 1;
+}
+
+// Comparação do segundo atributo
+printf("Segundo atributo escolhido para comparação: ");
+switch (opcao2) {
+    case 1: 
+        printf("População\n");
+        soma1 += populacao1;
+        soma2 += populacao2;
+        break;
+    case 2: 
+        printf("Área\n");
+        soma1 += area1;
+        soma2 += area2;
+        break;
+    case 3: 
+        printf("PIB\n");
+        soma1 += pib1;
+        soma2 += pib2;
+        break;
+    case 4: 
+        printf("Pontos Turísticos\n");
+        soma1 += pontoturistico1;
+        soma2 += pontoturistico2;
+        break;
+    case 5: 
+        printf("Densidade Demográfica\n");
+        soma1 += densidade1;
+        soma2 += densidade2;
+        break;
+    default: 
+        printf("Opção inválida\n");
+        return 1;
+}
+
+// Exibindo o resultado final
+printf("\nResultado da soma dos atributos:\n");
+printf("Carta 1: %.2f \nCarta 2: %.2f\n", soma1, soma2);
+
+printf("\n");
+
+// Verificando o vencedor ou empate
+if (soma1 > soma2) {
+    printf("### CARTA 1, VENCEU! ###\n");
+} else if (soma1 < soma2) {
+    printf("### CARTA 2, VENCEU! ###\n");
+} else {
+    printf("### EMPATE! ###\n");
+}
 
 
-    //Solicitando que o usuário escolha um atributo para comparação das cartas (Nível aventureiro):
-    printf("*** ESCOLHA UM ATRIBUTO PARA COMPARAR AS CARTAS: ***\n");
-    printf("1. População\n");
-    printf("2. Área\n");
-    printf("3. PIB\n");
-    printf("4. Pontos Turísticos\n");
-    printf("5. Densidade Demogrática\n\n");
 
-    scanf("%d", &opcao); // Armazenando a opção selecionada.
 
-    printf("\n");
-
+ /* DESAFIO NÍVEL AVENTUREIRO:
     //Utilizando o SWTICH para fazer a seleção.
-    switch (opcao) {
+    switch (opcao1) {
         case 1: //Quando for selecionada a primeira opção.
         printf("Nome das cidades: %s X %s.\n", cidade1, cidade2);
         printf("Atributo selecionado: POPULAÇÃO\n");
@@ -203,7 +310,7 @@ int main(){
         printf("Atributo selecionado: Densidade Demográfica\n");
         printf("Densidade Demográfica: %d X %d\n", densidade1, densidade2);
 
-            if(densidade1 > densidade2) {
+            if(densidade1 < densidade2) {
                 printf("### CARTA 1, VENCEU ! ###\n");
             }  else if(densidade1 == densidade2) {
                 printf("### EMPATE ! ###");
@@ -217,7 +324,7 @@ int main(){
         printf("Opção inválida.\nTente novamente.\n");
 
     }
-
+ */
 
     return 0;
 }
